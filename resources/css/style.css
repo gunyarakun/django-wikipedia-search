@@ -1,0 +1,252 @@
+/* Copyright (C) 2003-2005 Kouichirou Eto, All rights reserved.
+   based on a design by Hironori Oooka.
+   This is free software with ABSOLUTELY NO WARRANTY.
+   You can redistribute it and/or modify it under the terms of the GNU GPL2. */
+
+/* ========== general */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0.3em 0.3em 0 0.3em;
+  background-color: #fcfcfc;
+  color: #333333;
+  line-height: 1.33;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: medium;
+}
+
+h3, h4, h5, h6 {
+  margin: 1em 0;
+  padding: 0 0 0.05em 0.5em;
+  position: relative;
+  border-bottom: 2px solid #2B3866;
+  color: #2B3866;
+}
+
+h4 {
+  margin-left: 1.5em;
+  padding-left: 0.5em;
+  color: #2B3866;
+  font-size:90%;
+  font-weight: bold;
+  border-bottom: 1px solid #7285C5;
+}
+h5 {
+  margin-left: 2.5em;
+  padding-left: 0.5em;
+  color: #7285C5;
+  font-size:80%;
+  font-weight: bold;
+  border-bottom: 1px dotted #7285C5;
+}
+h6 {
+  margin: 0.5m 0;
+  margin-left: 3em;
+  padding-left: 0.5em;
+  color: #393;
+  font-weight: normal;
+  border-bottom: 2px dotted #ccc;
+  font-weight: normal;
+}
+
+pre {
+  margin: 10px 0;
+  padding: 5px;
+  background-color: #FFF;
+  border: 1px solid #7285C5;
+}
+
+blockquote {
+  margin: 0.75em 0;
+  padding: 0;
+  background-color: #fff;
+  border: 1px dotted #363;
+}
+blockquote blockquote {
+  margin: 0.75em;
+  padding: 0;
+}
+.section blockquote p {
+  margin: 0.5em;
+  padding: 0;
+}
+
+hr {
+  margin: 0;
+  padding: 0;
+  border: 2px dotted #393;
+}
+
+em, strong {
+  font-style: normal;
+  font-weight: bold;
+}
+strong {
+  color: #900;
+}
+
+
+a:link		{ color: #7285C5; }
+a:visited	{ color: #2B3866; }
+a:active, a:hover {
+  color: #fff; background-color: #2B3866;
+  text-decoration: none;
+}
+
+.search {
+  border: solid 2px #7285C5;
+  height: 20px;
+}
+
+.button {
+  border: solid 1px #7285C5;
+  height: 24px;
+}
+
+/* main */
+
+.main {
+  margin: 0 0 0 0;
+  padding: 0;
+}
+.main h1 {
+  margin: 0;
+  padding: 27px 0px 20px 170px;
+  background:url(/site_media/images/header.jpg) no-repeat #D8E2FA;
+  font-size:120%;
+}
+
+.main h1 * {
+  vertical-align: middle;
+}
+
+.main h2 {
+  margin: 0 0 0.6em 0;
+  padding:3px 1em 3px 1em;
+  text-align: right;
+  background:#7285C5;
+  color: #FFF;
+  border-bottom:1px solid #2B3866;
+  font-size: small;
+}
+
+.main h3 {
+  margin:0 1em .5em 1em;
+  padding:0.4em 0 0.3em 0.5em;
+  background:url(/site_media/images/menu_header.jpg) left top no-repeat;
+  color: #ffffff;
+  background-color: #E3E7EA;
+  border-bottom: 1px solid #D1D7DE;
+}
+
+.main ul, ol {
+  margin:0 0 .5em 3em;
+  padding:0.5em 0 0.2 0.5em;
+  font-weight: bold;
+}
+
+.main dl, p {
+  margin:0em 6em 1em 2em;
+  padding:0.5em 0 0.2 0.5em;
+}
+
+.main dt {
+  font-weight: bold;
+}
+
+.main dd {
+  margin:0.3em 0 2em 2em;
+  padding:0.7em 0.7em 0.7em 0.7em;
+  font-size: small;
+  background-color: #fff;
+  border: dashed 1px #7285c5;
+}
+
+.hl {
+  border: solid 2px #5165AC;
+/*  border: 0px;
+  background-color: #ff98ff; */
+}
+
+/* sqls */
+.sqls {
+  margin:0.3em 2em 0.3em 2em;
+  border: solid 1px #aaaaaa;
+}
+
+.sql {
+  margin:0.3em;
+  font-size: xx-small;
+  border: dashed 1px #aaaaaa;
+  background-color: #f0f3ff;
+}
+
+.sql p {
+  margin:0.3em;
+  padding:0.5em 0 0.2 0.5em;
+}
+
+.sql p.sql-time {
+  text-align: right;
+}
+
+/* pager */
+
+.pager {
+  text-align: center;
+}
+
+.pager ol {
+  list-style: none;
+  margin: 0;
+  padding: 0 50px;
+  position: relative;
+  display: inline;
+}
+
+.pager li {
+  border: 0;
+  border-right: 2px solid #bbbbbb;
+  line-height: 2em;
+  margin: 0;
+  text-align: center;
+  padding: 0 .4em;
+  display: inline;
+}
+
+.pager li:last-child {
+  border: 0;
+}
+
+/* footer */
+
+.footer h2 {
+  margin: 0;
+  padding:3px 0 3px 55px;
+  background:#7285C5 url(/site_media/images/h2.jpg) no-repeat;
+  color: #FFF;
+  border-bottom:1px solid #2B3866;
+  font-size: small;
+}
+
+.footer .rights {
+  margin: 0;
+  color: #666666;
+  font-size: small;
+  background:url(/site_media/images/footer.jpg) top repeat-x;
+}
+
+.footer img {
+  border: 0;
+  float: right;
+  margin: 0.4em;
+  vertical-align: middle;
+}
+
+/* end */

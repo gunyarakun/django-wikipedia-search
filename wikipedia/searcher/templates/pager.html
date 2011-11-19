@@ -1,0 +1,17 @@
+{% spaceless %}
+<div class="pager">
+<ol>
+{% if show_first %}<li class="first"><a href="{{ action }}/{{lang|urlencode}}/{{ query|urlencode }}/1/" title="First Page">1</a></li>{% endif %}
+{% if has_previous %}<li class="prev"><a href="{{ action }}/{{lang|urlencode}}/{{ query|urlencode }}/{{ previous }}/" title="Previous Page">&lt;</a></li>{% endif %}
+{% for num in page_numbers %}
+  {% ifequal num page %}
+    <li class="curr" title="Current Page">{{ num }}</li>
+  {% else %}
+    <li><a href="{{ action }}/{{lang|urlencode}}/{{ query|urlencode }}/{{ num }}/" title="Page {{ num }}">{{ num }}</a></li>
+  {% endifequal %}
+{% endfor %}
+{% if has_next %}<li class="next"><a href="{{ action }}/{{lang|urlencode}}/{{ query|urlencode }}/{{ next }}/" title="Next Page">&gt;</a></li>{% endif %}
+{% if show_last %}<li class="last"><a href="{{ action }}/{{lang|urlencode}}/{{ query|urlencode }}/{{ pages }}/" title="Last Page">{{ pages }}</a></li>{% endif %}
+</ol>
+</div>
+{% endspaceless %}

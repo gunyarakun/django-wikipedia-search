@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="/site_media/css/style.css" />
+  <title>Wikipedia検索 - {% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="main">
+  <form action="/search/" method="post">
+    <h1>Wikipedia検索 -
+      <input type="text" name="q" size="32" class="search" value="{{ query|escape }}"/>
+      <select name="lang" size="1">
+      {% for l in langs %}
+        <option value="{{ l.value }}" {% ifequal l.value lang %}selected{% endifequal %}>{{ l.show }}</option>
+      {% endfor %}
+      </select>
+      <input type="submit" value="検索" class="button" />
+    </h1>
+  </form>
+{% block main %}{% endblock %}
+</div>
+<div class="footer">
+  <h2>Sennaは(有)未来検索ブラジルとコミュニティのみなさんが開発した、「組み込み型」「高精度」「高速・即時更新」の特徴を備えた全文検索エンジンです。</h2>
+  <p class="rights">
+    <a href="http://qwik.jp/senna/"><img src="/site_media/images/senna_banner.gif" alt="powered by senna"/></a>
+    <a href="http://www.djangoproject.com/"><img src="/site_media/images/djangosite100x25.gif" border="0" alt="A Django site." title="A Django site." /></a>
+    <a href="http://wikimediafoundation.org/wiki/Home"><img src="/site_media/images/wikimedia-button.png" alt="A WIKIMEDIA project"/></A>
+    Text is available under <A href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License.</A><br />
+    SennaによるWikipedia検索デモ Copyright &copy; 2004-{% now "Y" %} <A href="http://b.razil.jp/">Brazil, Inc.</A> Some Rights Reserved.
+  </p>
+</div>
+</body>
+</html>
+

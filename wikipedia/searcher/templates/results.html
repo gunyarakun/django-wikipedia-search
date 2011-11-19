@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load pager %}
+
+{% block title %}「{{ query|escape }}」の検索結果{% endblock %}
+{% block main %}
+  <h2>「{{ query|escape }}」の検索結果
+    {% if titles %}タイトル : {{ title_paginator.hits }}件{% endif %}
+    {% if bodys %}文書 : {{ body_paginator.hits }}件{% endif %}
+  </h2>
+  {% if not titles and not bodys %}
+    <h3>検索結果が見つかりません</h3>
+    <p>
+      別のキーワードで検索してください。
+    </p>
+  {% endif %}
+  {% if titles %}
+  <h3>タイトルで検索</h3>
+  <ul>
+    {% for article in titles %}
+    <li>
+      <A href="http://{{ lang|urlencode }}.wikipedia.org/wiki/{{ article.title|urlencode }}">{{ article.title }}</A>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="pager">
+    {% pager title_paginator '/title' lang query title_page 8 %}
+  </div>
+  {% endif %}
+  {% if bodys %}
+  <h3>コンテンツで検索</h3>
+  <dl>
+    {% for article in bodys %}
+    <dt>
+      <A href="http://{{ lang|urlencode }}.wikipedia.org/wiki/{{ article.title|urlencode }}">{{ article.title }}</A>
+    </dt>
+    <dd>
+      {{ article.snip }}
+    </dd>
+    {% endfor %}
+  </dl>
+  <div class="pager">
+    {% pager body_paginator '/body' lang query body_page 8 %}
+  </div>
+  {% endif %}
+  {% if sql_queries %}
+  <h3>実行したSQL</h3>
+  <div class="sqls">
+    {% for sql_query in sql_queries %}
+      <div class="sql">
+        <p class="sql-statement">
+        {{ sql_query.sql|escape }}
+        </p>
+        <p class="sql-time">
+          時間: {{ sql_query.time|escape }}秒
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endblock %}
